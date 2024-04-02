@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Antique Bakery Cafe{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&family=Oswald:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/all.min.css">
+    <link rel="stylesheet" href="static/css/tailwind.css">
+    <link rel="stylesheet" href="static/css/tooplate-antique-cafe.css">
+</head>
+<body>
+    <!-- Navigasyon çubuğunu burada tanımlayabilirsiniz -->
+    <nav id="tm-nav" class="fixed w-full">
+            <div class="tm-container mx-auto px-2 md:py-6 text-right">
+                <button class="md:hidden py-2 px-2" id="menu-toggle"><i class="fas fa-2x fa-bars tm-text-gold"></i></button>
+                <ul class="mb-3 md:mb-0 text-2xl font-normal flex justify-end flex-col md:flex-row">
+                    {% if user.is_authenticated %}
+                    <li class="inline-block mb-4 mx-4"><a href="{{ url_for('views.intro') }}" class="tm-text-gold py-1 md:py-3 px-4">Intro</a></li>
+                    <li class="inline-block mb-4 mx-4"><a href="{{ url_for('views.menu') }}" class="tm-text-gold py-1 md:py-3 px-4">Menu</a></li>
+                    <li class="inline-block mb-4 mx-4"><a href="{{ url_for('views.about') }}" class="tm-text-gold py-1 md:py-3 px-4">About</a></li>
+                    <li class="inline-block mb-4 mx-4"><a href="{{ url_for('views.contact') }}" class="tm-text-gold py-1 md:py-3 px-4">Contact</a></li>
+                    <li class="inline-block mb-4 mx-4"><a href="{{ url_for('auth.logout') }}" class="tm-text-gold py-1 md:py-3 px-4">Logout</a></li>
+                    {% else %}
+                    <li class="inline-block mb-4 mx-4"><a href="{{ url_for('auth.login') }}" class="tm-text-gold py-1 md:py-3 px-4">Login</a></li>
+                    <li class="inline-block mb-4 mx-4"><a href="{{ url_for('auth.sign_up') }}" class="tm-text-gold py-1 md:py-3 px-4">Sign Up</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+    </nav>
+
+    <!-- Sayfa içeriği burada görüntülenecektir -->
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+
+
+    <!-- Ek JavaScript dosyalarını burada çağırabilirsiniz -->
+    <script src="static/js/jquery-3.6.0.min.js"></script>
+    <script src="static/js/parallax.min.js"></script>
+    <script src="static/js/jquery.singlePageNav.min.js"></script>
+</body>
+</html>

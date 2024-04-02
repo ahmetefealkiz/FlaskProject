@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - {{ super() }}{% endblock %}
+
+{% block content %}
+    <div id="contact" class="parallax-window relative" data-parallax="scroll" data-image-src="static/img/antique-cafe-bg-04.jpg">
+        <div class="container mx-auto tm-container pt-24 pb-48 sm:py-48">
+            <div class="flex flex-col lg:flex-row justify-around items-center lg:items-stretch">
+                <div class="flex-1 rounded-xl p-12 pb-14 m-5 bg-black bg-opacity-50 tm-item-container">
+                    <form method="POST" class="text-lg">
+                      <h2 class="text-3xl mb-6 tm-text-green">Login</h2>
+                        <input type="email" name="email" id = "email" class="input w-full bg-black border-b bg-opacity-0 text-white px-0 py-4 mb-4 tm-border-gold" placeholder="Email" required="" />
+                        <input type="password" name="password" id = "password" class="input w-full bg-black border-b bg-opacity-0 text-white px-0 py-4 mb-4 tm-border-gold" placeholder="Password" required="" />
+                        <div class="text-right">
+                            <button type="submit" class="text-white hover:text-yellow-500 transition">Login</button>
+                        </div>
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
